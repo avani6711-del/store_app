@@ -1,4 +1,5 @@
 {% extends 'home-02.html' %}
+{% load static %}
 {% block content %}
 <!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
@@ -19,7 +20,7 @@
 				<ul class="header-cart-wrapitem w-full">
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="images/item-cart-01.jpg" alt="IMG">
+							<img src="{% static 'images/item-cart-01.jpg' %}" alt="IMG">
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">
@@ -35,7 +36,7 @@
 
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="images/item-cart-02.jpg" alt="IMG">
+							<img src="{% static 'images/item-cart-02.jpg' %}" alt="IMG">
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">
@@ -51,7 +52,7 @@
 
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="images/item-cart-03.jpg" alt="IMG">
+							<img src="{% static 'images/item-cart-03.jpg' %}" alt="IMG">
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">
@@ -72,11 +73,11 @@
 					</div>
 
 					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						<a href="{% url 'shoping-cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
 							View Cart
 						</a>
 
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						<a href="{% url 'shoping-cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 							Check Out
 						</a>
 					</div>
@@ -89,7 +90,7 @@
 	<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="{% url 'index' %}" class="stext-109 cl8 hov-cl1 trans-04">
 				Home
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -120,7 +121,7 @@
 								<tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="images/item-cart-04.jpg" alt="IMG">
+											<img src="{% static 'images/item-cart-04.jpg' %}" alt="IMG">
 										</div>
 									</td>
 									<td class="column-2">Fresh Strawberries</td>
@@ -144,7 +145,7 @@
 								<tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="images/item-cart-05.jpg" alt="IMG">
+											<img src="{% static 'images/item-cart-05.jpg' %}" alt="IMG">
 										</div>
 									</td>
 									<td class="column-2">Lightweight Jacket</td>
