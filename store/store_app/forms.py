@@ -5,3 +5,8 @@ class CustomerForm(forms.ModelForm):
     class Meta:
         model=CustomerModel
         fields="__all__"
+
+class productForm(forms.ModelForm):
+    class Meta :
+        model = ProductsModel
+        fields ='__all__'

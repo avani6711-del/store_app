@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .forms import *
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 def about(request):
@@ -37,12 +38,13 @@ def register(request):
         customer=CustomerForm(request.POST)
         if customer.is_valid():
             customer.save()
-            return HttpResponse (request,'registration sucessfull')
+            return redirect('/login')
+            
         else:
             return HttpResponse(request,"Registration falied ,invalid data")
     else:
         customer=CustomerForm()
-    return render(request,'register.html')         
+    return render(request,'register.html',{"form":customer})         
 def add_product(request):
     if request.method == "POST":
         form = CustomerForm(request.POST,request.FILES)
@@ -56,13 +58,14 @@ def add_product(request):
     return render(request, 'add-product.html',{"form":form})
 def login(request):
     if request.method=="POST":
-        username=request.POST.get('name')
-        password=request.POST.get('password')
+        username=request.POST.get('Name')
+        password=request.POST.get('Password')
 
-        user=authenticate(username=username,password=password)
+        user=authenticate(request,username=username,Password=password)
         if user is not None:
+
             login(request,user)
             return redirect('home-02/')
         else:
             return HttpResponse(request,'invalid user or password')
-    return render(request,)
+    return render(request,'login.html')
