@@ -33,18 +33,23 @@ def shoping_cart(request):
 
 def index(request):
     return render(request, 'index.html')
+
 def register(request):
     if request.method=="POST":
         customer=CustomerForm(request.POST)
+        print(customer)
         if customer.is_valid():
             customer.save()
+            print(customer)
             return redirect('/login')
             
         else:
-            return HttpResponse(request,"Registration falied ,invalid data")
+            print("error")
+            return HttpResponse("Registration falied ,invalid data")
     else:
         customer=CustomerForm()
-    return render(request,'register.html',{"form":customer})         
+    return render(request,'register.html',{"form":customer}) 
+
 def add_product(request):
     if request.method == "POST":
         form = CustomerForm(request.POST,request.FILES)
@@ -52,11 +57,11 @@ def add_product(request):
             form.save()
             return redirect('/product')
         else:
-            return HttpResponse(request,"invalid form data")
+            return HttpResponse("invalid form data")
     else:
         form = CustomerForm()    
     return render(request, 'add-product.html',{"form":form})
-def login(request):
+def loginn(request):
     if request.method=="POST":
         username=request.POST.get('Name')
         password=request.POST.get('Password')
@@ -65,7 +70,7 @@ def login(request):
         if user is not None:
 
             login(request,user)
-            return redirect('home-02/')
+            return redirect('/')
         else:
-            return HttpResponse(request,'invalid user or password')
+            return HttpResponse('invalid user or password')
     return render(request,'login.html')
