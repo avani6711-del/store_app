@@ -146,7 +146,6 @@
 		<!-- Menu Mobile -->
 		<div class="menu-mobile">
 			<ul class="main-menu-m">
-				{% if user.is_authenticated %}
 				<li>
 					<a href="{% url 'index' %}">Home</a>
 					<ul class="sub-menu-m">
@@ -184,11 +183,9 @@
 				<li>
 					<a href="#">Logout</a>
 				</li>
-				{% else %}
 				<li><a href="{% url 'home-02' %}">Homepage 1</a></li>
 			    <li><a href="{% url 'register' %}">Register </a></li>
 				<li><a href="{% url 'loginn' %}">Login</a></li>
-                {% endif %}
 			</ul>
 		</div>
 
