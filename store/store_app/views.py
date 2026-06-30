@@ -26,7 +26,8 @@ def product_detail(request):
     return render(request, 'product-detail.html')
 
 def product(request):
-    return render(request, 'product.html')
+        products = ProductsModel.objects.all()
+    return render(request, 'product.html',{"Products":products})
 
 def shoping_cart(request):
     return render(request, 'shoping-cart.html')
