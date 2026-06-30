@@ -64,14 +64,12 @@ def add_product(request):
     return render(request, 'add-product.html',{"form":form})
 def loginn(request):
     if request.method=="POST":
-        email=request.POST.get('Email')
-        password=request.POST.get('Password')
+        e=request.POST.get('Email')
+        pwd=request.POST.get('Password')
 
-        user= CustomerModel.objects.get(Email = email)
-        if user.email == Email and user.pwd == Pwd:
-            login(request,user)
+        user= CustomerModel.objects.get(email = e)
+        if user.email == e and user.password == pwd:
             return redirect('/product')
-            
         else:
             return HttpResponse('invalid user or password')
     return render(request,'login.html')
